@@ -103,7 +103,7 @@ fn draw_straight_line_on_board(line: Line, board: &mut Board) {
             end = line.end.y;
             start = line.start.y;
         }
-        for i in start..end+1 {
+        for i in start..end + 1 {
             let x = line.start.x as usize;
             let y = i as usize;
             board.rows[x][y] = board.rows[x][y] + 1;
@@ -118,7 +118,7 @@ fn draw_straight_line_on_board(line: Line, board: &mut Board) {
             end = line.end.x;
             start = line.start.x;
         }
-        for i in start..end+1 {
+        for i in start..end + 1 {
             let x = i as usize;
             let y = line.start.y as usize;
             board.rows[x][y] = board.rows[x][y] + 1;
@@ -136,17 +136,17 @@ fn draw_diagonal_line_on_board(line: Line, board: &mut Board) {
         start = line.start;
         end = line.end;
     }
-    for i in 0..end.x-start.x+1 {
-            let x = (start.x+i) as usize;
-            let y;
-            if end.y > start.y {
-                // points down
-                y = (start.y+i) as usize;
-            } else {
-                // points up
-                y = (start.y-i) as usize;
-            }
-            board.rows[x][y] = board.rows[x][y] + 1;
+    for i in 0..end.x - start.x + 1 {
+        let x = (start.x + i) as usize;
+        let y;
+        if end.y > start.y {
+            // points down
+            y = (start.y + i) as usize;
+        } else {
+            // points up
+            y = (start.y - i) as usize;
+        }
+        board.rows[x][y] = board.rows[x][y] + 1;
     }
 }
 
